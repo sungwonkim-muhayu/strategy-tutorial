@@ -14,13 +14,6 @@ public class RenewService {
 
   private final Strategies strategies;
 
-  @EventListener(ApplicationReadyEvent.class)
-  public void test() {
-    saveAnimalMetadata(Animal.CAT);
-    saveAnimalMetadata(Animal.DOG);
-    saveAnimalMetadata(Animal.ELEPHANT);
-  }
-
   public void saveAnimalMetadata(final Animal animal) {
     final Strategy strategy = strategies.findStrategy(animal);
     final Response payloadMetadataResponse = strategy.requestPayloadMetadataResponse();
