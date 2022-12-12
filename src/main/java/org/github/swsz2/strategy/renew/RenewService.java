@@ -16,8 +16,8 @@ public class RenewService {
 
   public void saveAnimalMetadata(final Animal animal) {
     final Strategy strategy = strategies.findStrategy(animal);
-    final Response payloadMetadataResponse = strategy.requestPayloadMetadataResponse();
-    final Payload payload = strategy.createPayload(payloadMetadataResponse);
+    final Response payloadMetadata = strategy.requestPayloadMetadataResponse();
+    final Payload payload = strategy.createPayload(payloadMetadata);
     final Response fetched = strategy.fetch(payload);
 
     // 저장은 전략의 역할이 아니기 때문에 외부에서 구현
